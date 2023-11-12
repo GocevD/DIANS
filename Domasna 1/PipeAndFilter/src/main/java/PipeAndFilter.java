@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class PipeAndFilterProblem {
+public class PipeAndFilter {
 
     public static void main(String[] args) throws FileNotFoundException {
-        ClassLoader loader = PipeAndFilterProblem.class.getClassLoader();
+        ClassLoader loader = PipeAndFilter.class.getClassLoader();
         Scanner scanner = new Scanner(new File(loader.getResource("student_grades.csv").getFile()));
 
         Map<String, Integer> gradesByCourseGroup = new HashMap<String, Integer>();
