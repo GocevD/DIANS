@@ -8,6 +8,7 @@ import java.util.List;
 public class PipeAndFilter {
     public static void main(String[] args) throws ParseException {
         // Step 1: Read raw data from the web scraper or file
+
         List<Winery> rawData = readRawData();
 
         // Step 2: Create filters
@@ -49,7 +50,7 @@ public class PipeAndFilter {
         List<Winery> rawWineries = new ArrayList<>();
 
         // Specify the path to your CSV file
-        String csvFilePath = "src/main/resources/winery_data.csv";
+        String csvFilePath = "Domasna 1/PipeAndFilter/src/main/resources/winery_data.csv";
 
         try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
             String line;

@@ -11,15 +11,9 @@ public class DataCleaningFilter implements Filter<List<Winery>> {
 
     @Override
     public List<Winery> execute(List<Winery> inputData) throws ParseException {
-        // Perform data cleaning transformations on inputData
-        // (e.g., remove entries with missing or inconsistent values)
         Iterator<Winery> iterator = inputData.iterator();
         while (iterator.hasNext()) {
             Winery winery = iterator.next();
-            if (isInvalidWinery(winery)) {
-                // Remove entries that do not meet data cleaning criteria
-                iterator.remove();
-            }
         }
 
         // Pass the processed data to the next filter in the pipeline
