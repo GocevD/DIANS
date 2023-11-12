@@ -1,7 +1,8 @@
+import java.text.ParseException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         // Step 1: Read raw data from the web scraper or file
         List<Winery> rawData = readRawData();
 
@@ -29,7 +30,7 @@ public class Main {
         dataValidationFilter.setNextFilter(dataAggregationFilter);
 
         // Step 4: Execute the pipeline
-        List<Winery> transformedData = dataCleaningFilter.process(rawData);
+        List<Winery> transformedData = dataCleaningFilter.execute(rawData);
 
         // Step 5: Optional - Perform additional actions with the transformed data
         // (e.g., insert into a database, export to a file, display statistics)
