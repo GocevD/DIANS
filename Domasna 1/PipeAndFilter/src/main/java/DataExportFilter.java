@@ -26,7 +26,7 @@ public class DataExportFilter implements Filter<List<Winery>> {
 
     // Example method to export data to CSV - customize as needed
     private void exportDataToCSV(List<Winery> wineries) {
-        String csvFilePath = "Domasna 1/PipeAndFilter/export"; // Set your desired file path
+        String csvFilePath = "exported_data.csv"; // Set your desired file path
         try (FileWriter writer = new FileWriter(csvFilePath)) {
             // Write CSV header
             writer.append("Name,Address,City,Phone,Website,Email\n");

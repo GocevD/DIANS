@@ -61,13 +61,8 @@ public class PipeAndFilter {
                 String[] columns = line.split(",");
 
                 // Create a Winery object from the columns
-                Winery winery = new Winery();
-                winery.setName(columns[0]);
-                winery.setAddress(columns[1]);
-                winery.setCity(columns[2]);
-                winery.setPhone(columns[3]);
-                winery.setWebsite(columns[4]);
-                winery.setEmail(columns[5]);
+                Winery winery = new Winery(columns[0],  columns[1], columns[2], columns[3], columns[4], columns[5]);
+
 
                 // Add the Winery to the list
                 rawWineries.add(winery);
