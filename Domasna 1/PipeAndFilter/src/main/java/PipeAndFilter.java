@@ -1,7 +1,11 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class PipeAndFilter {
     public static void main(String[] args) throws ParseException {
         // Step 1: Read raw data from the web scraper or file
         List<Winery> rawData = readRawData();
@@ -42,10 +46,35 @@ public class Main {
     }
 
     private static List<Winery> readRawData() {
-        // Implement the logic to read raw data from the web scraper or file
-        // Return a List<Winery> containing the raw data
-        // ...
+        List<Winery> rawWineries = new ArrayList<>();
 
-        return /* List of Winery objects */;
+        // Specify the path to your CSV file
+        String csvFilePath = "src/main/resources/winery_data.csv";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath))) {
+            String line;
+
+            // Read each line from the CSV file
+            while ((line = br.readLine()) != null) {
+                // Split the line into columns
+                String[] columns = line.split(",");
+
+                // Create a Winery object from the columns
+                Winery winery = new Winery();
+                winery.setName(columns[0]);
+                winery.setAddress(columns[1]);
+                winery.setCity(columns[2]);
+                winery.setPhone(columns[3]);
+                winery.setWebsite(columns[4]);
+                winery.setEmail(columns[5]);
+
+                // Add the Winery to the list
+                rawWineries.add(winery);
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception based on your needs
+        }
+
+        return rawWineries;
     }
 }

@@ -17,6 +17,10 @@ public class Winery {
         this.email = email;
     }
 
+    public Winery() {
+
+    }
+
     // Getters and setters for each field
 
     public String getName() {
