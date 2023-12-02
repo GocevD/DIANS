@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Wine</title>
+    <!-- Other head content -->
+</head>
+<body>
+
+<h1>Add New Wine</h1>
+
+<form th:action="@{/wines/add}" th:object="${wine}" method="post">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>Year: <input type="number" th:field="*{year}" /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" /></label><br/>
+    <label>Winery:
+        <select th:field="*{winery}">
+            <option th:each="winery : ${wineries}" th:value="${winery.id}" th:text="${winery.name}"></option>
+        </select>
+    </label><br/>
+    <input type="submit" value="Add Wine" />
+</form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- head content -->
+</head>
+<body>
+
+<h1>Add New Winery</h1>
+
+<form th:action="@{/wineries/add}" th:object="${winery}" method="post">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>Location: <input type="text" th:field="*{location}" /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" /></label><br/>
+    <label>Website: <input type="text" th:field="*{website}" /></label><br/>
+    <label>Email: <input type="text" th:field="*{email}" /></label><br/>
+    <input type="submit" value="Add Winery" />
+</form>
+
+</body>
+</html>

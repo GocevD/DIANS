@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- head content -->
+</head>
+<body>
+
+<h1>Wine List</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Description</th>
+        <th>Winery</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="wine : ${wines}">
+        <td th:text="${wine.id}"></td>
+        <td th:text="${wine.name}"></td>
+        <td th:text="${wine.year}"></td>
+        <td th:text="${wine.description}"></td>
+        <td th:text="${wine.winery.name}"></td>
+        <td>
+            <a th:href="@{/wines/{id}/edit(id=${wine.id})}">Edit</a>
+            <span th:if="${!#lists.isEmpty(wines)}"> | </span>
+            <a th:href="@{/wines/{id}/delete(id=${wine.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/wines/add">Add Wine</a>
+<a href="/wineries">Winery List</a>
+</body>
+</html>
