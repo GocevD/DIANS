@@ -4,12 +4,19 @@ body {
 }
 .section {
     height: 100vh;
-
     width: 100%;
     position: relative;
     justify-content: center;
     align-items: center;
 }
+
+ .section {
+     height: 100vh;
+     width: 100%;
+     position: relative;
+     justify-content: center;
+     align-items: center;
+ }
 
 .color1, .color2, .color3{
     position: absolute;
@@ -52,6 +59,14 @@ body {
     border: 1px solid rgba(200, 146, 83, 0.4);
     pointer-events: none;
 }
+
+ .winery iframe {
+     max-width: 200%;
+     height: 300px;
+     width: 100%;
+     display: block;
+     margin: 5px;
+ }
 
 .header {
     background-color: rgba(66, 63, 50, 0.4);
@@ -113,6 +128,14 @@ a{
     border-radius: 5px;
     transform: translateY(-8px);
 }
+
+ .loginform {
+     display: flex;
+     flex-direction: row;
+     position: absolute;
+     top: 14px;
+     left: 84vw;
+ }
 
 .logo{
     margin-top: 220px;
@@ -194,64 +217,7 @@ a{
     background: rgb(200,146,83);
 }
 
-.loginform{
-    background: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    min-height: 400px;
-    width: 400px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.5);
-    border-right: 1px solid rgba(255,255,255,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    padding-left: 20px;
-    padding-right: 20px;
-    display: none;
-}
 
-.loginform p a:hover{
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.inputbox{
-    width: 100%;
-    margin-top: 20px;
-}
-
-.inputbox input{
-    width: 100%;
-    background: rgba(255,255,255,0.2);
-    border: none;
-    outline: none;
-    padding: 10px 20px;
-    border-radius: 35px;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-right: 1px solid rgba(255,255,255,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #F1EBE5;
-    box-shadow: 0 5px rgba(0,0,0,0.5);
-}
-
-.inputbox input[type="submit"]{
-    background: #F1EBE5;
-    color: #666;
-    max-width: 100px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
 .container{
     position: absolute;
     top: 50%;
@@ -351,9 +317,9 @@ video {
 }
  .winerycontainer {
      display: grid;
-     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Three items in a row, adjust the minmax value as needed */
-     gap: 20px; /* Adjust the gap between items */
-     margin: 20px; /* Add margin to the winery container */
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     gap: 20px;
+     margin: 20px;
  }
 
  .winery {
@@ -363,8 +329,10 @@ video {
      align-items: center;
      text-align: center;
      padding: 20px;
-     border: 1px solid #ddd; /* Add border for separation */
-     border-radius: 10px; /* Add border-radius for rounded corners */
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     margin: 10px;
+     background: #ddd;
  }
 
  .winery img {
@@ -374,4 +342,32 @@ video {
 
  .winery input {
      margin-top: 10px;
+ }
+
+.col-md-4{
+    margin-bottom: 10px;
+}
+
+ .winery {
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     margin: 0 15px;
+ }
+
+ /* Title styles */
+ .winery .title {
+     flex-grow: 1; /* Allow the title to grow and take available space */
+     margin: 0; /* Remove default margin to ensure accurate alignment */
+ }
+
+ /* Other styles for consistency */
+ .winery img {
+     width: 100px;
+     height: 100px;
+     margin-bottom: 10px; /* Add some space below the image */
+ }
+
+ .winery input {
+     margin-top: 10px; /* Add some space above the button */
  }
