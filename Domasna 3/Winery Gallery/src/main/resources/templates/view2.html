@@ -28,92 +28,76 @@
             <a href="#" class="aboutus">About us</a>
             <a href="#" class="wineries">Our Wineries</a>
             <a href="/wines" class="wines">Our Wines</a>
+            <div class="loginform">
             <a href="/user" th:text="${session.user.getUsername()}"></a>
             <a href="/logout">Log Out</a>
-
-        </div>
-    </div>
-
-        <div class="logo">
-            <div class="content">
-                <h1>Wine Gallery</h1>
-                <h1>Wine Gallery</h1>
-            </div>
-            <div class="subsection">
-                <h2>for the present</h2>
-                <h2>for the future</h2>
-                <h2>for sustainability</h2>
-            </div>
-            <div class="openup">
-                <a href="#">Open up</a>
-            </div>
-        </div>
-
-        <div class="loginform">
-            <h2 style="color: #F1EBE5; font-size: 30px">Login Form</h2>
-            <form>
-                <div class="inputbox">
-                    <input type="text" placeholder="Username">
-                </div>
-                <div class="inputbox">
-                    <input type="password" placeholder="Password">
-                </div>
-                <div class="inputbox">
-                    <input type="submit" value="Login" class="log">
-                </div>
-                <p style="color: #F1EBE5">Don't have an account ? <a href="#"
-                                                                     style="color: rgb(200,146,83); padding: 5px">Sign
-                    up.</a></p>
-            </form>
-        </div>
-    </div>
-
-    <div class="section" id="ourstory">
-        <div class="outline"></div>
-        <div class="container">
-            <div class="textbox">
-                <h1>OUR STORY</h1>
-                <h2 style="font-family: Smythe; font-size: 28px; letter-spacing: 3px; margin-left: 10px">We feature
-                    award-winning, estate-produced wines</h2>
-                <p>Welcome to Wine Gallery, where our passion for wine and dedication to creating memorable experiences
-                    converge. Fueled by the desire to share the hidden gems of this enchanting region, we embarked on a
-                    mission to connect wine enthusiasts with the finest wineries and exceptional varietals. Our story is
-                    woven with the threads of discovery and appreciation, aimed at transforming your wine journey into
-                    an
-                    unforgettable adventure. Navigating the diverse landscape of Macedonian wines, we curate
-                    personalized
-                    recommendations, guiding you to discover the perfect bottle for every occasion. Trust us to be your
-                    compass in the world of Macedonian wines, where each sip tells a unique tale of tradition, terroir,
-                    and
-                    timeless craftsmanship.</p>
-            </div>
-            <div class="wineimage">
-                <video src="/pexels-kindel-media-8093235 (1080p).mp4" autoplay muted loop></video>
             </div>
         </div>
     </div>
 
-    <div class="section">
-        <div class="outline"></div>
-        <div class="header2">Wine Families</div>
+    <div class="logo">
+        <div class="content">
+            <h1>Wine Gallery</h1>
+            <h1>Wine Gallery</h1>
+        </div>
+        <div class="subsection">
+            <h2>for the present</h2>
+            <h2>for the future</h2>
+            <h2>for sustainability</h2>
+        </div>
+        <div class="openup">
+            <a href="#">Open up</a>
+        </div>
+    </div>
 
-        <div class="container">
-            <div class="row">
-                <div th:each="winery, iterStat : ${wineries}" class="col-md-4">
-                    <div class="winery">
-                        <img class="img" style="width: 100px; height: 100px;" th:src="${winery.logo}" alt="logo">
-                        <h1 class="title" th:text="${winery.name}"></h1>
-                        <p class="description" th:text="${winery.description}"></p>
+</div>
 
-                        <a th:href="${winery.website}">
-                            <input type="button" value="More info">
-                        </a>
-                        <div th:utext="${winery.iframe}"></div>
-                    </div>
+<div class="section" id="ourstory">
+    <div class="outline"></div>
+    <div class="container">
+        <div class="textbox">
+            <h1>OUR STORY</h1>
+            <h2 style="font-family: Smythe; font-size: 28px; letter-spacing: 3px; margin-left: 10px">We feature
+                award-winning, estate-produced wines</h2>
+            <p>Welcome to Wine Gallery, where our passion for wine and dedication to creating memorable experiences
+                converge. Fueled by the desire to share the hidden gems of this enchanting region, we embarked on a
+                mission to connect wine enthusiasts with the finest wineries and exceptional varietals. Our story is
+                woven with the threads of discovery and appreciation, aimed at transforming your wine journey into
+                an
+                unforgettable adventure. Navigating the diverse landscape of Macedonian wines, we curate
+                personalized
+                recommendations, guiding you to discover the perfect bottle for every occasion. Trust us to be your
+                compass in the world of Macedonian wines, where each sip tells a unique tale of tradition, terroir,
+                and
+                timeless craftsmanship.</p>
+        </div>
+        <div class="wineimage">
+            <video src="/pexels-kindel-media-8093235 (1080p).mp4" autoplay muted loop></video>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+
+    <div class="header2">Wine Families</div>
+
+    <div >
+        <div class="row">
+            <div th:each="winery, iterStat : ${wineries}" class="col-md-4">
+                <div class="winery">
+                    <img class="img" style="width: 100px; height: 100px;" th:src="${winery.logo}" alt="logo">
+                    <h1 class="title" th:text="${winery.name}"></h1>
+                    <p class="description" th:text="${winery.description}"></p>
+
+                    <a th:href="${winery.website}">
+                        <input type="button" value="More info">
+                    </a>
+                    <div th:utext="${winery.iframe}"></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 </div>
