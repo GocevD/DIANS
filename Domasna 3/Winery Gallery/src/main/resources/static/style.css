@@ -62,7 +62,7 @@ body {
 
  .winery iframe {
      max-width: 200%;
-     height: 300px;
+     height: 200px;
      width: 100%;
      display: block;
      margin: 5px;
@@ -345,19 +345,21 @@ video {
  }
 
 .col-md-4{
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
  .winery {
      display: flex;
      flex-direction: column;
      height: 100%;
-     margin: 0 15px;
+     margin: 0 20px;
  }
 
  /* Title styles */
  .winery .title {
-     flex-grow: 1; /* Allow the title to grow and take available space */
+     font-size: 24px;
+     font-weight: bolder;
+     flex-grow: 1;
      margin: 0; /* Remove default margin to ensure accurate alignment */
  }
 
@@ -368,6 +370,12 @@ video {
      margin-bottom: 10px; /* Add some space below the image */
  }
 
+ .winery .description, .winery .full-text{
+     flex-grow: 1;
+     font-size: 14px;
+ }
  .winery input {
      margin-top: 10px; /* Add some space above the button */
  }
+
+ 
