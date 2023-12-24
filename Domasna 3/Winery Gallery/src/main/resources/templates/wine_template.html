@@ -1,0 +1,34 @@
+<!-- wine_template.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wine Page</title>
+</head>
+<body>
+
+<h2>Wine Page</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Year</th>
+        <!-- Add other fields as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of wines -->
+    <tr th:each="wine : ${wines}">
+        <td th:text="${wine.id}"></td>
+        <td th:text="${wine.name}"></td>
+        <td th:text="${wine.year}"></td>
+        <!-- Add other fields as needed -->
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Wine</title>
+</head>
+<body>
+
+<h1>Edit Wine</h1>
+
+<form th:action="@{'/wines/' + ${wine.id} + '/edit'}" method="POST">
+  <input type="hidden" name="id" th:value="${wine.id}"/>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" th:value="${wine.name}" required/>
+  <br/>
+
+  <label for="year">Year:</label>
+  <input type="number" id="year" name="year" th:value="${wine.year}" required/>
+  <br/>
+
+  <label for="picture">Picture URL:</label>
+  <input type="text" id="picture" name="picture" th:value="${wine.picture}" required/>
+  <br/>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" th:text="${wine.description}" required></textarea>
+  <br/>
+
+
+  <label for="wineryId">Winery ID:</label>
+  <select id="wineryId" name="wineryId" th:field="${wine.winery.id}" required>
+    <option  th:each="winery : ${wineries}"  th:value="${winery.id}" th:text="${winery.name}"></option>
+  </select>
+  <br/>
+
+  <button type="submit">Save Changes</button>
+</form>
+
+</body>
+</html>

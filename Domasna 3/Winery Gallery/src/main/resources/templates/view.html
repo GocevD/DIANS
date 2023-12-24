@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- head content -->
+</head>
+<body>
+
+<h1>Winery Details</h1>
+
+<div>
+    <p>ID: <span th:text="${winery.id}"></span></p>
+    <p>Name: <span th:text="${winery.name}"></span></p>
+    <p>Location: <span th:text="${winery.location}"></span></p>
+    <p>Description: <span th:text="${winery.description}"></span></p>
+    <p>Website: <span th:text="${winery.website}"></span></p>
+    <p>Email: <span th:text="${winery.email}"></span></p>
+</div>
+
+<h2>Linked Wines</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="wine : ${wines}">
+        <td th:text="${wine.id}"></td>
+        <td th:text="${wine.name}"></td>
+        <td th:text="${wine.year}"></td>
+        <td th:text="${wine.description}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

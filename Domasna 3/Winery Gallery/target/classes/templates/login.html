@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+<style>
+    body{
+        background: black;
+    }
+
+    .login{
+        background: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        min-height: 400px;
+        width: 400px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .login div label {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: underline;
+        margin: 10px;
+    }
+    .login div input{
+        width: 100%;
+        background: rgba(255,255,255,0.2);
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 35px;
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 16px;
+        letter-spacing: 1px;
+        color: #F1EBE5;
+        box-shadow: 0 5px rgba(0,0,0,0.5);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .login div button{
+        background: #F1EBE5;
+        color: #666;
+        max-width: 100px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-weight: 600;
+        border-radius: 30px;
+    }
+
+    .login h2{
+        color: #F1EBE5;
+        font-weight: bolder;
+        font-size: 32px;
+        margin-left: 10px;
+    }
+</style>
+<body>
+
+<form action="/login" method="post" class="login">
+    <h2>Login</h2>
+    <div>
+        <label for="username" class="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+    </div>
+    <div>
+        <label for="password" class="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+    </div>
+    <div>
+        <button type="submit" class="button">Login</button>
+        <a th:href="@{/register}"><button type="button">Register</button></a>
+    </div>
+</form>
+</body>
+</html>

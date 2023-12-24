@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Winery List</title>
+</head>
+<body>
+
+<h1>Winery List</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Website</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="winery : ${wineries}">
+        <td th:text="${winery.id}"></td>
+        <td th:text="${winery.name}"></td>
+        <td th:text="${winery.location}"></td>
+        <td th:text="${winery.description}"></td>
+        <td th:text="${winery.website}"></td>
+        <td th:text="${winery.email}"></td>
+        <td>
+            <a th:href="@{/wineries/{id}(id=${winery.id})}">View</a>
+            <span th:if="${!#lists.isEmpty(wineries)}"> | </span>
+            <a th:href="@{/wineries/{id}/delete(id=${winery.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/wineries/add">Add Winery</a>
+<a href="/wines">Wine List</a>
+</body>
+</html>

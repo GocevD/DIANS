@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+
+
+<h2>Winery List</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <!-- Add other fields as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of wineries -->
+    <tr th:each="winery:${wineries}">
+        <td th:text="${winery.website}"></td>
+        <td th:text="${winery.name}"></td>
+        <td th:text="${winery.location}"></td>
+        <!-- Add other fields as needed -->
+    </tr>
+    </tbody>
+</table>
+
+
+
+<h2>Winery List</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <!-- Add other fields as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of wineries -->
+    <tr th:each="winery:${wineries}">
+        <td th:text="${winery.website}"></td>
+        <td th:text="${winery.name}"></td>
+        <td th:text="${winery.location}"></td>
+        <!-- Add other fields as needed -->
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
