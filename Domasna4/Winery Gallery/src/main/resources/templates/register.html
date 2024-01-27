@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>User Registration</title>
+</head>
+
+<style>
+    body{
+        background: black;
+        font-family: "Poppins";
+    }
+
+    .login{
+        background: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        min-height: 400px;
+        width: 400px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .login div label {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: underline;
+        margin: 10px;
+    }
+    .login div input{
+        width: 100%;
+        background: rgba(255,255,255,0.2);
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 35px;
+        border: 1px solid rgba(255,255,255,0.5);
+        border-right: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 16px;
+        letter-spacing: 1px;
+        color: #F1EBE5;
+        box-shadow: 0 5px rgba(0,0,0,0.5);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .login div button{
+        background: #F1EBE5;
+        color: #666;
+        max-width: 100px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-weight: 600;
+        border-radius: 30px;
+    }
+
+    .login h2{
+        color: #F1EBE5;
+        font-weight: bolder;
+        font-size: 32px;
+        margin-left: 10px;
+    }
+
+    .content{
+
+        position: relative;
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Good Vibes";
+    }
+
+    .content h1{
+        position: absolute;
+        transform: translate(-10%, -10%);
+        font-size: 50px;
+    }
+
+
+    .content h1:nth-child(1) {
+        color: transparent;
+        -webkit-text-stroke: 2px rgb(200,146,83);;
+
+    }
+
+    .content h1:nth-child(2) {
+        color: rgb(200,146,83);
+        animation: animate 1.5s ease-in-out infinite;
+
+    }
+
+    @keyframes animate {
+        0%,100%{
+            clip-path: polygon(0% 45%,15% 44%,32% 50%,100% 100%,0% 100%);
+        }
+        50%{
+            clip-path: polygon(0% 54%, 14% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+        }
+    }
+</style>
+<body>
+
+<div class="login">
+    <form th:action="@{/register}" th:object="${user}" method="post">
+        <div class="logo">
+            <div class="content">
+                <h1>Wine Gallery</h1>
+                <h1>Wine Gallery</h1>
+            </div>
+            <h2>User Registration</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" th:field="*{username}" required>
+            <br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" th:field="*{password}" required>
+            <br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{email}" required>
+            <br>
+
+            <button type="submit">Register</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

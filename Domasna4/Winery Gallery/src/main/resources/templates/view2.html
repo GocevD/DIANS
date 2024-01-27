@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Smythe">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<script>
+
+    function showFullText(button) {
+        var winery = button.closest('.winery');
+        var description = winery.querySelector('.description');
+        var fullText = winery.querySelector('.full-text');
+        var showLessButton = winery.querySelector('button[onclick="showLessText(this)"]');
+        description.style.display = "none";
+        fullText.style.display = "block";
+        showLessButton.style.display = "block";
+        button.style.display = "none";
+    }
+
+    function showLessText(button) {
+        var winery = button.closest('.winery');
+        var description = winery.querySelector('.description');
+        var fullText = winery.querySelector('.full-text');
+        var showFullButton = winery.querySelector('button[onclick="showFullText(this)"]');
+        fullText.style.display = "none";
+        description.style.display = "block";
+        showFullButton.style.display = "block";
+        button.style.display = "none";
+    }
+
+</script>
+<div class="video-wrapper">
+    <video autoplay muted loop poster>
+        <source src="/winelogo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<div class="section">
+    <div class="outline"></div>
+    <div class="color1"></div>
+    <div class="color2"></div>
+    <div class="color3"></div>
+    <div class="header">
+        <div class="navigation">
+            <a href="#" class="aboutus">About us</a>
+            <a href="#" class="wineries">Our Wineries</a>
+            <a href="/wines" class="wines">Our Wines</a>
+            <div class="loginform">
+                <a href="/user" th:text="${session.user.getUsername()}"></a>
+                <a href="/logout">Log Out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="content">
+            <h1>Wine Gallery</h1>
+            <h1>Wine Gallery</h1>
+        </div>
+        <div class="subsection">
+            <h2>for the present</h2>
+            <h2>for the future</h2>
+            <h2>for sustainability</h2>
+        </div>
+        <div class="openup">
+            <a href="#">Open up</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="section" id="ourstory">
+    <div class="outline"></div>
+    <div class="container">
+        <div class="textbox">
+            <h1>OUR STORY</h1>
+            <h2 style="font-family: Smythe; font-size: 28px; letter-spacing: 3px; margin-left: 10px">We feature
+                award-winning, estate-produced wines</h2>
+            <p>Welcome to Wine Gallery, where our passion for wine and dedication to creating memorable experiences
+                converge. Fueled by the desire to share the hidden gems of this enchanting region, we embarked on a
+                mission to connect wine enthusiasts with the finest wineries and exceptional varietals. Our story is
+                woven with the threads of discovery and appreciation, aimed at transforming your wine journey into
+                an
+                unforgettable adventure. Navigating the diverse landscape of Macedonian wines, we curate
+                personalized
+                recommendations, guiding you to discover the perfect bottle for every occasion. Trust us to be your
+                compass in the world of Macedonian wines, where each sip tells a unique tale of tradition, terroir,
+                and
+                timeless craftsmanship.</p>
+        </div>
+        <div class="wineimage">
+            <video src="/pexels-kindel-media-8093235 (1080p).mp4" autoplay muted loop></video>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+
+    <div class="header2">Wine Families</div>
+
+    <div >
+        <div class="row">
+            <div th:each="winery, iterStat : ${wineries}" class="col-md-4">
+                <div class="winery">
+                    <img class="img" style="width: 100px; height: 100px;" th:src="${winery.logo}" alt="logo">
+                    <h1 class="title" th:text="${winery.name}"></h1>
+                    <span class="description" th:text="${winery.description.substring(0, winery.description.length / 2)}"></span>
+                    <span>. . .</span>
+                    <button class="button" onclick="showFullText(this)">Show full text</button>
+                    <p class="full-text" style="display: none;" th:text="${winery.description}"></p>
+                    <button class="button" onclick="showLessText(this)" style="display: none;">Show less</button>
+                    <a th:href="${winery.website}">
+                        <input class="button" type="button" value="More info">
+                    </a>
+                    <div th:utext="${winery.iframe}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</body>
+</html>
